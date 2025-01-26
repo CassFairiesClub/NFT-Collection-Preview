@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Chia Halving Schedule</title>
+  <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <div id="vidcontainer" class="video-container">
+    <video id="vid" autoplay muted>
+      <source
+        src="https://bafybeifqw6ipiwncs4iwsss7yimoa22j37d5cu7sbrd3ta7a22jxskapeq.ipfs.nftstorage.link/8bit_Season_1_Video_Mini_1_Cass_Trip.mp4"
+        type="video/mp4">
+    </video>
+  </div>
+  <script type="module">
+    const myvideos = [
+      "https://ipfs.mintgarden.io/ipfs/bafybeidyo6rgtufjxoq3vzeineuheymwtu4xxjuvxghp67ooedx4x4fehm/8bit_Special_Broadcast_2_A_Snails_Life.mp4",
+      "https://bafybeifqw6ipiwncs4iwsss7yimoa22j37d5cu7sbrd3ta7a22jxskapeq.ipfs.nftstorage.link/8bit_Season_1_Video_Mini_1_Cass_Trip.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeifxf5dxxs4y3xdjzwpstal7gwhyolgw4gj73qq5fi54nmxoaytmxa/8bit_Cinema_SpaceTime.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeibujdrnwgof2oj7fli3r3vrvv3jadgwdaljkyqvea4nsv5sljipmu/8bit_Special_Broadcast_4_Pixel_Animal_Breakdance.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeiecjyxcmmukjv6o5rh7jndmkxd4wjnw2dzidultgnpnbb7lxndgyy/8bit_Cinema_ChipsVerte.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeie4sidpxi2rqgc7prqgef7wt4637viyti3yy5jqcutyhbi24jjmqq/8bit8yo_Shorts_Dracattus.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeibz6rumf4onpmzcgwfuizs63gr53kv3iya3m7335w4jqcr6b3kgtu/8bit8yo_Mondo_Monkey_Adventures.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeigqu4s2wxuys4ecmayfcuels47gtyraok4f5crqeandqfxyyrmgqu/8bit_Cinema_SarcasticSongs_OHIO.mp4",
+      "https://ipfs.mintgarden.io/ipfs/bafybeiasunrpjqefshefot4daisfplm6l4keraizgrzo5zbvl3v5bjpdpi/8bit8yo_Smoernokaffe_Oni.mp4",
+      "https://bafybeihb7vkkkrb5yqabt4ljhaqljvrjbb7qfbaf5uvf3l663q2bmnr7ri.ipfs.nftstorage.link/8bit_Season_1_Video_Mini_2_Hoffrat.mp4",
+      "https://bafybeiekyd5z2javo5l3isj3k4zlqfp4le23bmyd5c43lsy4ig5t6wiopu.ipfs.nftstorage.link/8bit_Season_1_Video_Mini_4_Recruit.mp4"
+    ]
+    window.onload = function () {
+      const nb_videos = myvideos.length
+      let index = 0
+      document.getElementById('vid').src = myvideos[index]
+      document.getElementById('vid').play();
+      //document.getElementById('vid').muted = false;
+      document.getElementById("vid").addEventListener("ended", function () {
+        index = (index + 1) % nb_videos
+        document.getElementById('vid').src = myvideos[index]
+        document.getElementById('vid').play();
+      });
+    }
+    function toggleMute() {
+      var video = document.getElementById("vid");
+      video.muted = !video.muted;
+    }
+    document.getElementById('vidcontainer').addEventListener("click", () => {
+      toggleMute()
+    });
+  </script>
+</body>
+
+</html>
